@@ -14,7 +14,7 @@
     - name: create manager
       register: create
       with_items:
-        -"{{ hostsconfig }}"
+        - "{{ hostsconfig }}"
        
       tags: create
       proxmox:
