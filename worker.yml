@@ -10,11 +10,7 @@
     - name: create worker
       register: create
       with_items:
-        - { id: '141', name: 'vm41.ansible.lab', ip: '192.168.1.41/24' }
-        - { id: '142', name: 'vm42.ansible.lab', ip: '192.168.1.42/24' }
-        - { id: '143', name: 'vm43.ansible.lab', ip: '192.168.1.43/24' }
-        - { id: '144', name: 'vm44.ansible.lab', ip: '192.168.1.44/24' }
-        - { id: '145', name: 'vm45.ansible.lab', ip: '192.168.1.45/24' }
+        - "{{ hostconfigs }}"
       tags: create
       proxmox:
         vmid: "{{ item.id }}"

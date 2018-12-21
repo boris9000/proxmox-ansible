@@ -14,8 +14,8 @@
     - name: create manager
       register: create
       with_items:
-        - { id: '121', name: 'vm21.ansible.lab', ip: '192.168.1.21/24' }
-        - { id: '122', name: 'vm22.ansible.lab', ip: '192.168.1.22/24' }
+        -"{{ hostsconfig }}"
+       
       tags: create
       proxmox:
         vmid: "{{ item.id }}"

@@ -14,9 +14,7 @@
     - name: create master
       register: create
       with_items:
-        - { id: '133', name: 'vm33.ansible.lab', ip: '192.168.1.33/24' }
-        - { id: '134', name: 'vm34.ansible.lab', ip: '192.168.1.34/24' }
-        - { id: '135', name: 'vm35.ansible.lab', ip: '192.168.1.35/24' }
+        - "{{ hostsconfig }}"
       tags: create
       proxmox:
         vmid: "{{ item.id }}"
