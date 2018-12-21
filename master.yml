@@ -1,0 +1,41 @@
+---
+- hosts: 'pve' 
+  gather_facts: True
+
+  vars: 
+    template:
+      centos: 'local:vztmpl/centos-7-default_20171212_amd64.tar.xz'
+      stretch: 'local:vztmpl:debian-9.0-standard_9.5-1_amd64.tar.gz'
+
+#  vars_files: 
+#    - vars/worker.yml
+
+  tasks: 
+    - name: create master
+      register: create
+      with_items:
+        - { id: '133', name: 'vm33.ansible.lab', ip: '192.168.1.33/24' }
+        - { id: '134', name: 'vm34.ansible.lab', ip: '192.168.1.34/24' }
+        - { id: '135', name: 'vm35.ansible.lab', ip: '192.168.1.35/24' }
+      tags: create
+      proxmox:
+        vmid: "{{ item.id }}"
+        node: '{{ proxmox_node }}'
+        api_host: '{{ proxmox_api_host }}'
+        api_user: '{{ proxmox_api_user }}'
+        api_password: '{{ proxmox_api_password }}'
+        hostname: "{{ item.name }}"
+        password: '{{ proxmox_password_new_node }}'      
+        ostemplate: "{{ lxc_template }}"
+        pubkey: '{{ proxmox_pub_key }}'
+        netif: '{"net0":"name=eth0,ip={{ item.ip }},ip6=dhcp,bridge=vmbr0"}'
+        cores: 4
+        storage: local-lvm
+        memory: 8192
+        swap: 10300
+        disk: 100
+        force: yes
+        
+
+    - debug: { var: create.msg }
+      tags: create

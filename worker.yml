@@ -1,0 +1,83 @@
+---
+
+- hosts: 'pve' 
+  gather_facts: True
+
+#  vars_files: 
+#    - vars/worker.yml
+
+  tasks: 
+    - name: create worker
+      register: create
+      with_items:
+        - { id: '141', name: 'vm41.ansible.lab', ip: '192.168.1.41/24' }
+        - { id: '142', name: 'vm42.ansible.lab', ip: '192.168.1.42/24' }
+        - { id: '143', name: 'vm43.ansible.lab', ip: '192.168.1.43/24' }
+        - { id: '144', name: 'vm44.ansible.lab', ip: '192.168.1.44/24' }
+        - { id: '145', name: 'vm45.ansible.lab', ip: '192.168.1.45/24' }
+      tags: create
+      proxmox:
+        vmid: "{{ item.id }}"
+        node: '{{ proxmox_node }}'
+        api_host: '{{ proxmox_api_host }}'
+        api_user: '{{ proxmox_api_user }}'
+        api_password: '{{ proxmox_api_password }}'
+        hostname: "{{ item.name }}"
+        password: '{{ proxmox_password_new_node }}'      
+        ostemplate: "{{ lxc_template }}"
+        pubkey: '{{ proxmox_pub_key }}'
+        netif: '{"net0":"name=eth0,ip={{ item.ip }},ip6=dhcp,bridge=vmbr0"}'
+        cores: 4
+        storage: local-lvm
+        mounts: '{"mp0":"local-lvm:100,mp=/hdfs"}'
+        memory: 10300
+        swap: 10300
+        disk: 100
+        force: yes
+        
+
+    - debug: { var: create.msg }
+      tags: create
+
+    - name: start container
+      register: start
+      tags: start
+      with_items: '{{ vmid }}'
+      proxmox:
+        vmid: '{{ item }}'
+        api_user: '{{ proxmox_api_user }}'
+        api_password: '{{ proxmox_api_password }}'
+        api_host: '{{ proxmox_api_host }}'
+        state: started
+
+    - debug: { var: start.msg }
+      tags: start
+
+    - name: stop container
+      register: stop
+      tags: stop
+      with_items: '{{ vmid }}'
+      proxmox:
+        vmid: '{{ item }}'
+        api_user: '{{ proxmox_api_user }}'
+        api_password: '{{ proxmox_api_password }}'
+        api_host: '{{ proxmox_api_host }}'
+        force: yes
+        state: stopped
+
+    - debug: { var: stop.msg }
+      tags: stop
+
+    - name: remove container
+      register: remove
+      tags: remove
+      with_items: '{{ vmid }}'
+      proxmox:
+        vmid: '{{ item }}'
+        api_user: '{{ proxmox_api_user }}'
+        api_password: '{{ proxmox_api_password }}'
+        api_host: '{{ proxmox_api_host }}'
+        state: absent
+
+    - debug: { var: remove.msg }
+      tags: remove
