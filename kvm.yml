@@ -1,6 +1,6 @@
 
 - name: Deploy dynamic VMs from cloud-init template
-  hosts: "{{ proxmox_api_host }}"
+  hosts: pve
   roles:
    - cloudinit-deploy
   tags: cloudinit-deploy
