@@ -1,1 +1,11 @@
 ---
+# vm definitions
+vms:
+  ubuntu-cloud-init-1:
+    cloudinit: true
+    memory: 8G
+    cores: 2
+    cpu: 2
+    template: 'cloudinit-template-ubuntu'
+    node: 'pve'
+    ipconfig: '{"ipconfig0":"ip=192.168.1.101/24,gw=192.168.1.1.1"}'

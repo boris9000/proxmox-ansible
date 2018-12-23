@@ -51,6 +51,3 @@
     with_items: "{{ cloned_vms_pve.results }}"
     when: item.changed
     no_log: True
-
-
-
