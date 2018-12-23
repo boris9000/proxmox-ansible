@@ -12,8 +12,7 @@
     with_dict: "{{ vms }}"
     loop_control:
       pause: 5
-    notify:
-      - sleep
+    notify: sleep
     register: cloned_vms_pve
     when: item.value.cloudinit | default(false) | bool
     
