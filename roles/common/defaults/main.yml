@@ -5,6 +5,7 @@ packages:
   - curl                    
   - unzip                   
   - tar                     
-  - wget                                    
+  - wget  
+  - htop  
 
 openjdk_package: openjdk-8-jdk
