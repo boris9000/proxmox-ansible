@@ -1,6 +1,5 @@
 
 - name: Deploy dynamic VMs from cloud-init template
-  hosts: dev
   roles:
    - cloudinit-deploy
   tags: cloudinit-deploy
