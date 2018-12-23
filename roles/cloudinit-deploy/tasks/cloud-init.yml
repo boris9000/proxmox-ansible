@@ -9,6 +9,7 @@
     name: "{{ item.key }}"
     clone: "{{ item.value.template }}"
     net: '{{ item.value.net | default(defaults.net) }}'
+    timeout     : 1800
   with_dict: "{{ vms }}"
   loop_control:
     pause: 5
