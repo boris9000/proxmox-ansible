@@ -9,7 +9,7 @@
     name: "{{ item.key }}"
     clone: "{{ item.value.template }}"
     net: '{{ item.value.net | default(defaults.net) }}'
-    timeout: '{{ item.item.value.timeout | default(defaults.timeout) }}'
+    timeout: 1800
   with_dict: "{{ vms }}"
   loop_control:
     pause: 5
@@ -42,7 +42,7 @@
     bootdisk: "scsi0"
     boot: "c"
     update: yes
-    timeout: '{{ item.item.value.timeout | default(defaults.timeout) }}'
+    timeout: 1800
   with_items: "{{ cloned_vms_pve.results }}"
   when: item.changed
   no_log: False
@@ -55,7 +55,7 @@
     node: "{{ item.item.value.node }}"
     name: "{{ item.item.key }}"
     state: started
-    timeout: '{{ item.item.value.timeout | default(defaults.timeout) }}'
+    timeout: 1800
   with_items: "{{ cloned_vms_pve.results }}"
   when: item.changed
   no_log: False
