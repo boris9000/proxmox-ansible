@@ -2,6 +2,7 @@
 # default clone values
 defaults:
   cpu: "host"
+  user: "ubuntu1"
   net: '{"net0":"virtio,bridge=vmbr0"}'
   cores: '2'
   memory_size: '2048'

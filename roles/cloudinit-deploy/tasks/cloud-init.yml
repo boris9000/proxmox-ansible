@@ -31,6 +31,7 @@
     name: "{{ item.item.key }}"
     ipconfig: "{{ item.item.value.ipconfig | default(defaults.ipconfig) }}"
     sshkeys: "{{ item.item.value.sshkeys | default(defaults.sshkeys) | urlencode | replace('/','%2F') }}"
+    ciuser: "{{ item.item.value.user | default(defaults.user) }}"
     cores: '{{ item.item.value.cores | default(defaults.cores) }}'
     memory: '{{ item.item.value.memory_size | default(defaults.memory_size) }}'
     balloon: '{{ item.item.value.balloon | default(defaults.balloon) }}'
