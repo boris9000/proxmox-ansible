@@ -1,0 +1,6 @@
+
+- name: Deploy dynamic VMs from cloud-init template
+  hosts: dev
+  roles:
+   - cloud-init
+  tags: cloud-init 
