@@ -8,14 +8,14 @@
     node: "{{ item.value.node }}"
     name: "{{ item.key }}"
     clone: "{{ item.value.template }}"
-    net: '{{ item.value.net | default(defaults.net) }}'
+    net: '{{ item.value.net }}'
   with_dict: "{{ vms }}"
   loop_control:
     pause: 5
   notify:
     - sleep
   register: cloned_vms_pve
-  when: item.value.cloudinit | default(false) | bool
+  when: item.value.cloudinit | bool
     
 - name: update cloud-init settings
   proxmox_kvm:
@@ -24,15 +24,15 @@
     api_host: "{{ proxmox_api_host }}"
     node: "{{ item.item.value.node }}"
     name: "{{ item.item.key }}"
-    ipconfig: "{{ item.item.value.ipconfig | default(defaults.ipconfig) }}"
-    sshkeys: "{{ item.item.value.sshkeys | default(defaults.sshkeys) | urlencode | replace('/','%2F') }}"
-    cores: '{{ item.item.value.cores | default(defaults.cores) }}'
-    memory: '{{ item.item.value.memory_size | default(defaults.memory_size) }}'
-    balloon: '{{ item.item.value.balloon | default(defaults.balloon) }}'
+    ipconfig: "{{ item.item.value.ipconfig }}"
+    sshkeys: "{{ item.item.value.sshkeys | urlencode | replace('/','%2F') }}"
+    cores: '{{ item.item.value.cores }}'
+    memory: '{{ item.item.value.memory_size }}'
+    balloon: '{{ item.item.value.balloon }}'
     vga: 'serial0'
     serial: '{"serial0":"socket"}'
-    ostype: '{{ item.item.value.ostype | default(defaults.ostype) }}'
-    cpu: '{{ item.item.value.cpu | default(defaults.cpu) }}'
+    ostype: '{{ item.item.value.ostype }}'
+    cpu: '{{ item.item.value.cpu }}'
     bootdisk: "scsi0"
     boot: "c"
     update: yes
