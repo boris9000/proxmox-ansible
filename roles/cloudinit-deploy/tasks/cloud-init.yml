@@ -15,7 +15,7 @@
   notify:
     - sleep
   register: cloned_vms_pve
-  when: item.value.cloudinit | default(false) | bool
+  when: item.value.cloudinit | default(true) | bool
     
 - name: update cloud-init settings
   proxmox_kvm:
@@ -38,7 +38,7 @@
     update: yes
   with_items: "{{ cloned_vms_pve.results }}"
   when: item.changed
-  no_log: True
+  no_log: False
 
 - name: start clones
   proxmox_kvm:
@@ -50,4 +50,4 @@
     state: started
   with_items: "{{ cloned_vms_pve.results }}"
   when: item.changed
-  no_log: True
+  no_log: False
