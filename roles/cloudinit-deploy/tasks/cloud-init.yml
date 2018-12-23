@@ -27,10 +27,11 @@
     ipconfig: "{{ item.item.value.ipconfig | default(defaults.ipconfig) }}"
     sshkeys: "{{ item.item.value.sshkeys | default(defaults.sshkeys) | urlencode | replace('/','%2F') }}"
     cores: '{{ item.item.value.cores | default(defaults.cores) }}'
+    vcores: '{{ item.item.value.vcores | default(defaults.vcores) }}'
     memory: '{{ item.item.value.memory_size | default(defaults.memory_size) }}'
     balloon: '{{ item.item.value.balloon | default(defaults.balloon) }}'
-    vga: 'serial0'
-    serial: '{"serial0":"socket"}'
+    vga: 'serial10'
+    serial: '{"serial10":"socket"}'
     ostype: '{{ item.item.value.ostype | default(defaults.ostype) }}'
     cpu: '{{ item.item.value.cpu | default(defaults.cpu) }}'
     bootdisk: "scsi0"
