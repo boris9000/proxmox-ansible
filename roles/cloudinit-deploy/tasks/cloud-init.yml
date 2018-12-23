@@ -1,11 +1,5 @@
 ---  
 
-handlers:
-
-- name: sleep
-pause:
-  seconds: 10
-
 - name: clone cloud-init from template
   proxmox_kvm:
     api_user: "{{ proxmox_api_user }}"
