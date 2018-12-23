@@ -18,9 +18,9 @@
    - geerlingguy.git
   tags: git  
   
-- name: Apply the softasap.sa-vnc-remote-desktop role to the dev group
+- name: Apply the sdarwin.vnc role to the dev group
   hosts: dev
   roles:
-   - softasap.sa-vnc-remote-desktop
+   - sdarwin.vnc
   tags: vnc
  
