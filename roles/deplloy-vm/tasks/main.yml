@@ -1,0 +1,15 @@
+---  
+- name: Deploy virtual machines
+
+  hosts: pve
+  gather_facts: false
+  
+  handlers:
+  
+  - name: sleep
+    pause:
+      seconds: 10
+      
+  tasks:
+  - name: clone virtual machines 
+  include_tasks: cloud-init.yml

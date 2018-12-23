@@ -1,0 +1,56 @@
+---  
+
+- name: clone cloud-init from template
+    proxmox_kvm:
+      api_user: "{{ api_user }}"
+      api_password: "{{ api_password }}"
+      api_host: "{{ api_host }}"
+      node: "{{ item.value.node }}"
+      name: "{{ item.key }}"
+      clone: "{{ item.value.template }}"
+      net: '{{ item.value.net | default(defaults.net) }}'
+    with_dict: "{{ vms }}"
+    loop_control:
+      pause: 5
+    notify:
+      - sleep
+    register: cloned_vms_pve
+    when: item.value.cloudinit | default(false) | bool
+    
+  - name: update cloud-init settings
+    proxmox_kvm:
+      api_user: "{{ api_user }}"
+      api_password: "{{ api_password }}"
+      api_host: "{{ api_host }}"
+      node: "{{ item.item.value.node }}"
+      name: "{{ item.item.key }}"
+      ipconfig: "{{ item.item.value.ipconfig | default(defaults.ipconfig) }}"
+      sshkeys: "{{ item.item.value.sshkeys | default(defaults.sshkeys) | urlencode | replace('/','%2F') }}"
+      cores: '{{ item.item.value.cores | default(defaults.cores) }}'
+      memory: '{{ item.item.value.memory_size | default(defaults.memory_size) }}'
+      balloon: '{{ item.item.value.balloon | default(defaults.balloon) }}'
+      vga: 'serial0'
+      serial: '{"serial0":"socket"}'
+      ostype: '{{ item.item.value.ostype | default(defaults.ostype) }}'
+      cpu: '{{ item.item.value.cpu | default(defaults.cpu) }}'
+      bootdisk: "scsi0"
+      boot: "c"
+      update: yes
+    with_items: "{{ cloned_vms_pve.results }}"
+    when: item.changed
+    no_log: True
+    
+  - name: start clones
+    proxmox_kvm:
+      api_user: "{{ api_user }}"
+      api_password: "{{ api_password }}"
+      api_host: "{{ api_host }}"
+      node: "{{ item.item.value.node }}"
+      name: "{{ item.item.key }}"
+      state: started
+    with_items: "{{ cloned_vms_pve.results }}"
+    when: item.changed
+    no_log: True
+
+
+
