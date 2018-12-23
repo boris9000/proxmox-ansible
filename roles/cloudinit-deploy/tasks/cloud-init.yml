@@ -16,6 +16,10 @@
     - sleep
   register: cloned_vms_pve
   when: item.value.cloudinit | default(true) | bool
+  
+- meta: flush_handlers
+  when: cloned_vms_pve.changed
+
     
 - name: update cloud-init settings
   proxmox_kvm:
