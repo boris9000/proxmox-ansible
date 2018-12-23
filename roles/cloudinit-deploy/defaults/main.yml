@@ -1,4 +1,16 @@
 ---
+# default clone values
+defaults:
+  cpu: "host"
+  net: '{"net0":"virtio,bridge=vmbr0"}'
+  cores: '2'
+  memory_size: '2048'
+  balloon: '1024'
+  scsihw: 'virtio-scsi-pci'
+  virtio: '{"scsi0":"local-zfs:16,cache=writeback,discard=on"}'
+  ostype: 'l26'
+  sshkeys: 'ssh-rsa  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsvTnk0heb3C7DGvVE2gd0kRtQQYkIk+hEtSJeizlF5MuAX+O7NXDIBmUP1F2MnjtwBCs8MMlmteWR02PaVw0CvuKZqDN9CK59EYeIk7yzyEYMsGwf7sqNHZfqSI+apcohDOMXGcURTf6BymOe7AhzE+0TRX98li3wXHuDSnTSU84NHNgOTm2YxOPXgiCLE5YlhdAc3uEkBN2TOjkYBmhNmwqpLJEAaV60xF9HwROkEl15+K4ha1khbnCcqHJhV1iDEfrEb8psTLdBHrdtUamQAotJjFCUkDxVKWiykR77NtI2uxOOjN212kijoGnM+uyt78Hn6rlko7xp7lLfOBNH isancmen@everis.com'
+
 # vm definitions
 vms:
   ubuntu-cloud-init-1:
