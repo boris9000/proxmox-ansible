@@ -1,5 +1,6 @@
 
 - name: Deploy dynamic VMs from cloud-init template
+  hosts: "{{ api_host }}"
   roles:
    - cloudinit-deploy
   tags: cloudinit-deploy
