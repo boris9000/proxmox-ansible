@@ -20,4 +20,5 @@ vms:
     cpu: 2
     template: 'cloudinit-ubuntu-template'
     node: 'pve'
-    ipconfig: '{"ipconfig0":"ip=192.168.1.101/24,gw=192.168.1.1.1"}'
+    ipconfig: '{"ipconfig0":"ip=192.168.1.101/24,gw=192.168.1.1"}'
+    timeout     : 1800
