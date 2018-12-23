@@ -16,7 +16,7 @@ defaults:
 vms:
   ubuntu-cloud-init-1:
     cloudinit: true
-    memory: 8G
+    memory: 8000
     cores       : 2
     vcpus       : 2
     template: 'cloudinit-ubuntu-template'
