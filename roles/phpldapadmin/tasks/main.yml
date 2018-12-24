@@ -1,0 +1,9 @@
+---  
+
+- name: Install required packages
+  apt:
+    name: "{{ item }}"
+    update_cache: no
+    install_recommends: yes 
+    state: present
+  with_items: "{{ packages | join(',') }}"
