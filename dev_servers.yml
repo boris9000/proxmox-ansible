@@ -6,6 +6,12 @@
    - common
   tags: common
   
+- name: Apply the xfce4 role to the dev group
+  hosts: dev
+  roles:
+   - xfce4
+  tags: xfce4
+  
 - name: Apply the gantsign.intellij role to the dev group
   hosts: dev
   roles:

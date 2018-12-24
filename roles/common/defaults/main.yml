@@ -1,6 +1,5 @@
 ---
 packages:
-  - xfce4
   - openssh-client          
   - curl                    
   - unzip                   

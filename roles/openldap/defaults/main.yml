@@ -1,0 +1,4 @@
+---
+packages:
+  - slapd 
+  - ldap-utils
