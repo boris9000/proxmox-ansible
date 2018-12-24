@@ -1,0 +1,4 @@
+---
+packages:
+  - gnome-session
+  - gdm3
