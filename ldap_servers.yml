@@ -1,0 +1,14 @@
+---
+
+- name: Apply the common role to the dev group
+  hosts: authentication
+  roles:
+   - common
+  tags: common
+  
+- name: Apply the openldap role to the dev group
+  hosts: authentication
+  roles:
+   - openldap
+  tags: openldap
+ 

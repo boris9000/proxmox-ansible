@@ -1,5 +1,6 @@
 ---
 packages:
+  - tasksel
   - openssh-client          
   - curl                    
   - unzip                   
