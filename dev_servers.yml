@@ -12,17 +12,17 @@
    - xfce4
   tags: xfce4
   
-- name: Apply the gantsign.intellij role to the dev group
-  hosts: dev
-  roles:
-   - gantsign.intellij
-  tags: intellij 
- 
 - name: Apply the geerlingguy.git role to the dev group
   hosts: dev
   roles:
    - geerlingguy.git
   tags: git  
+  
+- name: Apply the gantsign.intellij role to the dev group
+  hosts: dev
+  roles:
+   - gantsign.intellij
+  tags: intellij 
   
 - name: Apply the sdarwin.vnc role to the dev group
   hosts: dev
