@@ -1,14 +1,13 @@
 ---
 
-- name: Apply the common role to the dev group
+- name: Apply the common role to the authentication group
   hosts: authentication
   roles:
    - common
   tags: common
   
-- name: Apply the phpldapadmin role to the dev group
+- name: Apply the openldap role to the authentication group
   hosts: authentication
   roles:
-    - mrlesmithjr.etc-hosts
-    - mrlesmithjr.openldap
+    - bennojoy.openldap_server
  
