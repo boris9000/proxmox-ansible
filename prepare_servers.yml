@@ -1,7 +1,5 @@
 ---
 
-webofmars.xfce4-desktop
-
 - name: Apply the webofmars role to the dev group
   hosts: dev
   roles:

@@ -1,5 +1,8 @@
 ---
 packages:
+#  - slapd
+#  - ldap-utils
+  - ldapsearch
   - openssh-client          
   - curl                    
   - unzip                   
