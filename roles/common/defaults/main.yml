@@ -2,6 +2,7 @@
 packages:
 #  - slapd
 #  - ldap-utils
+  - xfce4
   - ldapsearch
   - openssh-client          
   - curl                    
