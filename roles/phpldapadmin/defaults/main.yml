@@ -1,3 +1,5 @@
 ---
 packages:
+  - slapd 
+  - ldap-utils
   - phpldapadmin

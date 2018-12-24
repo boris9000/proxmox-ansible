@@ -15,6 +15,6 @@
 - name: Apply the phpldapadmin role to the dev group
   hosts: authentication
   roles:
-   - phpldapadmin
-  tags: phpldapadmin
+    - mrlesmithjr.etc-hosts
+    - mrlesmithjr.openldap
  

@@ -3,4 +3,5 @@
 - src: gantsign.intellij
 - src: softasap.sa-vnc-remote-desktop
 - src: sdarwin.vnc
-- src: bennojoy.openldap_server
+- src: mrlesmithjr.etc-hosts
+- src: mrlesmithjr.openldap
