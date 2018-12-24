@@ -11,4 +11,10 @@
   roles:
    - bennojoy.openldap_server
   tags: bennojoy.openldap_server
+  
+- name: Apply the phpldapadmin role to the dev group
+  hosts: authentication
+  roles:
+   - phpldapadmin
+  tags: phpldapadmin
  
