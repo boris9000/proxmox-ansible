@@ -6,12 +6,6 @@
    - common
   tags: common
   
-- name: Apply the bennojoy.openldap_server role to the dev group
-  hosts: authentication
-  roles:
-   - bennojoy.openldap_server
-  tags: bennojoy.openldap_server
-  
 - name: Apply the phpldapadmin role to the dev group
   hosts: authentication
   roles:
