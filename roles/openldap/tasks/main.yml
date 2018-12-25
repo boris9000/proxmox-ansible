@@ -23,6 +23,9 @@
     src: db.ldif
     dest: /tmp
     
+- name: Load ddbb template into ldap
+  command: ldapmodify -Y EXTERNAL  -H ldapi:/// -f /tmp/db.ldif
+    
 - name: Load ldap root entry
   ldap_entry:
     params: "{{ldap_auth}}"
