@@ -11,7 +11,6 @@
     state: started
     timeout: 1800
   with_items: "{{ vm_names }}"
-  when: item.changed
   no_log: False
 
 - name: stop virtual machines
@@ -25,7 +24,6 @@
     state: stopped
     timeout: 1800
   with_items: "{{ vm_names }}"
-  when: item.changed
   no_log: False
   
 - name: remove virtual machines
@@ -39,7 +37,6 @@
     state: absent
     timeout: 1800
   with_items: "{{ vm_names }}"
-  when: item.changed
   no_log: False
   
 - name: restart virtual machines
@@ -53,5 +50,4 @@
     state: restarted
     timeout: 1800
   with_items: "{{ vm_names }}"
-  when: item.changed
   no_log: Falses
