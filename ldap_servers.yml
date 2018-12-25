@@ -9,5 +9,6 @@
 - name: Apply the openldap role to the authentication group
   hosts: authentication
   roles:
-    - bennojoy.openldap_server
+    - openldap
+  tags: openldap
  
