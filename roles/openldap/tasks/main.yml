@@ -42,7 +42,7 @@
     - groups
     - people
     
- - name: Load users
+- name: Load users
   ldap_entry:
     params: "{{ldap_auth}}"
     dn: "cn={{item.value.cn}},ou=people,{{ldap_basedn}}"
