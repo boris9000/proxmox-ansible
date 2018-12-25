@@ -1,0 +1,10 @@
+---
+packages:
+  - ubuntu-gnome-desktop
+  - openssh-client          
+  - curl                    
+  - unzip                   
+  - tar                     
+  - wget                                    
+
+openjdk_package: openjdk-8-jdk
