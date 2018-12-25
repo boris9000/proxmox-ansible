@@ -12,7 +12,7 @@
     timeout: 1800
   with_items: "{{ vm_names }}"
   when: item.changed
-  no_log: True
+  no_log: False
 
 - name: stop virtual machines
   tags: stop
@@ -26,7 +26,7 @@
     timeout: 1800
   with_items: "{{ vm_names }}"
   when: item.changed
-  no_log: True
+  no_log: False
   
 - name: remove virtual machines
   tags: remove
@@ -40,7 +40,7 @@
     timeout: 1800
   with_items: "{{ vm_names }}"
   when: item.changed
-  no_log: True
+  no_log: False
   
 - name: restart virtual machines
   tags: restart
@@ -54,4 +54,4 @@
     timeout: 1800
   with_items: "{{ vm_names }}"
   when: item.changed
-  no_log: True
+  no_log: Falses
