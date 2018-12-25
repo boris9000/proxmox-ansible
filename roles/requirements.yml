@@ -4,5 +4,4 @@
 - src: softasap.sa-vnc-remote-desktop
 - src: sdarwin.vnc
 - src: mrlesmithjr.etc-hosts
-- src: capitanh.openldap-ansible-role
-  name: openldap
+#- src: capitanh.openldap-ansible-role
