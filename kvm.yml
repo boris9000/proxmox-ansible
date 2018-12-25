@@ -11,3 +11,6 @@
    - cloudinit-manage
   tags: cloudinit-manage
   vm_names: "{{ vm_names }}"
+
+- pause:
+    minutes: 2
