@@ -10,6 +10,3 @@
   roles:
    - cloudinit-manage
   tags: cloudinit-manage
-
-- pause:
-    minutes: 2
