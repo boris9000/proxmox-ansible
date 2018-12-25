@@ -1,7 +1,7 @@
 ---  
 
 - name: start virtual machines
-  tag: start
+  tags: start
   proxmox_kvm:
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
@@ -15,7 +15,7 @@
   no_log: True
 
 - name: stop virtual machines
-  tag: stop
+  tags: stop
   proxmox_kvm:
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
@@ -29,7 +29,7 @@
   no_log: True
   
 - name: remove virtual machines
-  tag: remove
+  tags: remove
   proxmox_kvm:
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
@@ -43,7 +43,7 @@
   no_log: True
   
 - name: restart virtual machines
-  tag: restart
+  tags: restart
   proxmox_kvm:
     api_user: "{{ proxmox_api_user }}"
     api_password: "{{ proxmox_api_password }}"
