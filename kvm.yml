@@ -11,6 +11,6 @@
    - cloudinit-manage
   tags: cloudinit-manage
   
-  - name: sleep for 180 seconds and continue with play
+- name: sleep for 180 seconds and continue with play
   tags: sleep
   wait_for: timeout=180
