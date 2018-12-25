@@ -45,7 +45,7 @@
     timeout: 1800
   with_items: "{{ cloned_vms_pve.results }}"
   when: item.changed
-  no_log: False
+  no_log: True
 
 - name: start clones
   proxmox_kvm:
@@ -58,4 +58,4 @@
     timeout: 1800
   with_items: "{{ cloned_vms_pve.results }}"
   when: item.changed
-  no_log: False
+  no_log: True

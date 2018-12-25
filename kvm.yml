@@ -4,3 +4,10 @@
   roles:
    - cloudinit-deploy
   tags: cloudinit-deploy
+  
+- name: Manage dynamic VMs from cloud-init template
+  hosts: pve
+  roles:
+   - cloudinit-manage
+  tags: cloudinit-manage
+  vm_names: "{{ vm_names }}"

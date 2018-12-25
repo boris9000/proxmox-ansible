@@ -1,0 +1,57 @@
+---  
+
+- name: start virtual machines
+  tag: start
+  proxmox_kvm:
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_api_host }}"
+    node: "{{ proxmox_api_node }}"
+    name: "{{ item }}"
+    state: started
+    timeout: 1800
+  with_items: "{{ vm_names }}"
+  when: item.changed
+  no_log: True
+
+- name: stop virtual machines
+  tag: stop
+  proxmox_kvm:
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_api_host }}"
+    node: "{{ proxmox_api_node }}"
+    name: "{{ item }}"
+    state: stopped
+    timeout: 1800
+  with_items: "{{ vm_names }}"
+  when: item.changed
+  no_log: True
+  
+- name: remove virtual machines
+  tag: remove
+  proxmox_kvm:
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_api_host }}"
+    node: "{{ proxmox_api_node }}"
+    name: "{{ item }}"
+    state: absent
+    timeout: 1800
+  with_items: "{{ vm_names }}"
+  when: item.changed
+  no_log: True
+  
+- name: restart virtual machines
+  tag: restart
+  proxmox_kvm:
+    api_user: "{{ proxmox_api_user }}"
+    api_password: "{{ proxmox_api_password }}"
+    api_host: "{{ proxmox_api_host }}"
+    node: "{{ proxmox_api_node }}"
+    name: "{{ item }}"
+    state: restarted
+    timeout: 1800
+  with_items: "{{ vm_names }}"
+  when: item.changed
+  no_log: True
