@@ -64,7 +64,7 @@
       #employeeNumber: "{{item.value.employeeNumber}}"
   with_dict: "{{ldap_users}}"
   
-  - name: Load groups
+- name: Load groups
   ldap_entry:
     params: "{{ldap_auth}}"
     dn: "cn={{item.name}},ou=groups,{{ldap_basedn}}"
@@ -90,4 +90,3 @@
   service:
     name: slapd
     state: restarted
-© 2018 GitHub, Inc.
