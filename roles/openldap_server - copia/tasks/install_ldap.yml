@@ -4,13 +4,13 @@
   include_vars: "{{ ansible_os_family }}.yml"
 
 - name: Install the openldap and required Packages for RedHat
-  yum: name={{ item }} state=installed
+  yum: name={{ item }} state=present
   with_items: ldap_pkgs
   when: ansible_os_family == 'RedHat'
 
 
 - name: Install the openldap and required Packages for Ubuntu
-  apt: name={{ item }} state=installed update_cache=yes
+  apt: name={{ item }} state=present update_cache=yes
   with_items: ldap_pkgs
   environment: env
   when: ansible_os_family == 'Debian'
