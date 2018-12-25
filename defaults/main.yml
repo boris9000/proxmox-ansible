@@ -2,7 +2,7 @@
 
 #OPENLDAP
 
-ldap_basedn: dc=golili,dc=net             # Base DN
+ldap_basedn: dc=easton,dc=org             # Base DN
 ldap_auth:                                # LDAP Authetication config
   server_uri: ldap://ldap-server:389  
   bind_dn: admin, {{ldap_basedn}}         # Requires ldap_basedn
