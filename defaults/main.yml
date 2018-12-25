@@ -1,0 +1,38 @@
+---
+
+#OPENLDAP
+
+ldap_basedn: dc=golili,dc=net             # Base DN
+ldap_auth:                                # LDAP Authetication config
+  server_uri: ldap://ldap-server:389  
+  bind_dn: admin, {{ldap_basedn}}         # Requires ldap_basedn
+  bind_pw: password
+  
+ldap_users:
+      spolex:
+        cn: Inigo Sanchez
+        givenname: Inigo
+        sn: Sanchez
+        mail: spolexmsn.com
+        userpassword: password
+      spolex1:
+        cn: Jose Sanchez 
+        givenname: Jose
+        sn: Sanchez
+        mail: spolexdroid@gmail.com
+        userpassword: password
+ldap_groups:
+  - name: devops
+    members:
+      - spolex
+  - name: developers
+    members:
+      - spolex
+      - spolex1
+      
+# Kerberos
+kerberos_server_realm_name: EASTON.ORG         # The realm name for the kerneros server
+kerberos_server_kdc_port: 88                    # The port in which kdc should listen
+kerberos_server_master_db_pass: password          # Password for the master kerberos database
+kerberos_server_kadmin_pass: password             # Password for the kerberos admin
+kerberos_server_kadmin_user: admin               # Username for the kerberos server
