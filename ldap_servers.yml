@@ -9,12 +9,12 @@
 - name: Apply the openldap role to the authentication group
   hosts: authentication
   roles:
-    - openldap
-  tags: openldap
+    - openldap_server
+  tags: openldap_server
   
-# - name: Apply the kerberos role to the authentication group
-  # hosts: authentication
-  # roles:
-    # - kerberos
-  # tags: kerberos
+- name: Apply the kerberos role to the authentication group
+  hosts: authentication
+  roles:
+    - kerberos_server
+  tags: kerberos
  

@@ -1,6 +1,5 @@
 ---
 packages:
-  - ubuntu-gnome-desktop
   - openssh-client          
   - curl                    
   - unzip                   

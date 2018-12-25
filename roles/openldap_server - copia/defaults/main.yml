@@ -1,0 +1,15 @@
+---
+
+#The domain prefix for ldap
+domain_name: easton.org
+
+#This is the password for admin for openldap 
+rootpw: password
+
+#The self signed ssl parameters
+country: US
+state: connecticut
+location: easton
+organization: IT
+
+enable_ssl: true
