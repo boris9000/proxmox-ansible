@@ -1,10 +1,10 @@
 ---
 
-realm_name: EXAMPLE.COM
+realm_name: EASTONLAB.ORG
 kdc_port: 88
-master_db_pass: foobar
-kadmin_pass: foobar
-kadmin_user: benz
+master_db_pass: password
+kadmin_pass: password
+kadmin_user: admin
 
 
 
