@@ -3,12 +3,12 @@
 - name: Install the kerberos packages 
   yum: name={{ item }} state=present
   with_items: redhat_pkg
-  when: ansible_os_family == "RedHat"
+  when: ansible_facts['os_family'] == "CentOS"
 
 - name: Install the kerberos packages 
   apt: name={{ item }} state=present
   with_items: ubuntu_pkg
-  when: ansible_os_family == "Debian"
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: Copy the client configuration file 
   template: src=krb5.conf.j2 dest=/etc/krb5.conf
