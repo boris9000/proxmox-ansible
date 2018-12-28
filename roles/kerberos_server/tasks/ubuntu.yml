@@ -1,5 +1,4 @@
 ---
-gather_facts: False
 
 - name: Install kerberos packages
   apt:
