@@ -1,0 +1,8 @@
+---
+
+- name: Apply the kerberos role to the authentication group
+  hosts: authentication
+  roles:
+    - kerberos_server
+  tags: kerberos
+ 
