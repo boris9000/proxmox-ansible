@@ -4,5 +4,11 @@
   hosts: authentication
   roles:
     - kerberos_server
-  tags: kerberos
+  tags: kerberos-server
+  
+- name: Apply the kerberos role to the authentication group
+  hosts: authentication
+  roles:
+    - kerberos_client
+  tags: kerberos-client
  
