@@ -33,8 +33,10 @@
     name: "{{ item }}"
     state: started 
     enabled: yes
-  with_items: "{{ ubunt_service }}"
+  with_items: "{{ ubuntu_service }}"
+  no_log: False
 
 - name: Create an admin for the administering the kerberos database
   script: create_admin.sh  "{{ kadmin_pass }}" "{{ kadmin_user }}" 
   when: install.changed
+  no_log: False
