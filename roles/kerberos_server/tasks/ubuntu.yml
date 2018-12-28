@@ -42,5 +42,4 @@
 
 - name: Create an admin for the administering the kerberos database
   script: create_admin.sh  "{{ kadmin_pass }}" "{{ kadmin_user }}" 
-  when: install.changed
   no_log: False
