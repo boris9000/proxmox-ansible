@@ -1,7 +1,7 @@
 
 - name: Load a variable file based on the cluster size.
   include_vars:
-    file: {{ cluster_size }}.yaml
+    file: small.yaml
     name: cluster size
 
 - name: clone cloud-init from template
