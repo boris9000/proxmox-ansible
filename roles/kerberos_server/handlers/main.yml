@@ -11,3 +11,9 @@
     name: "{{ item }}" 
     state: restarted
   with_items: "{{ ubuntu_service }}"
+
+- name: stop kerberos ubuntu
+  service: 
+    name: "{{ item }}" 
+    state: stopped
+  with_items: "{{ ubuntu_service }}"
