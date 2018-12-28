@@ -1,4 +1,5 @@
 ---
+gather_facts: False
 
 - name: Install kerberos packages
   apt:
@@ -32,14 +33,11 @@
 # - name: Make sure we have the entry for hostname in /etc/hosts  
   # host: ip={{ ansible_default_ipv4.address }} hostname={{ ansible_hostname }} alias="{{ ansible_hostname + '.' + realm_name|lower() }}"
 
-- name: Start the kerberos services 
+- name: start kerberos ubuntu
   service: 
-    name: "{{ item }}"
-    state: started 
-    enabled: yes
+    name: "{{ item }}" 
+    state: started
   with_items: "{{ ubuntu_service }}"
-  no_log: False
 
 - name: Create an admin for the administering the kerberos database
   script: create_admin.sh  "{{ kadmin_pass }}" "{{ kadmin_user }}" 
-  no_log: False
