@@ -1,9 +1,13 @@
 ---
 
 - name: restart kerberos
-  service: name={{ item }} state=restarted
-  with_items: redhat_service
+  service: 
+    name: "{{ item }}" 
+    state: restarted
+  with_items: "{{ redhat_service }}"
  
 - name: restart kerberos ubuntu
-  service: name={{ item }} state=restarted
-  with_items: ubuntu_service
+  service: 
+    name: "{{ item }}" 
+    state: restarted
+  with_items: "{{ ubuntu_service }}"
