@@ -1,9 +1,11 @@
 ---
 
-- name: Install the kerberos packages 
-  apt: name={{ item }} state=present update_cache=yes
+- name: Install kerberos packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ ubuntu_pkg }}"
   register: install
-  with_items: ubuntu_pkg
 
 - name: Copy the kdc configuration file 
   template: src=kdc.conf.j2 dest=/etc/krb5kdc/kdc.conf
@@ -20,18 +22,19 @@
   template: src=krb5.conf.j2 dest=/etc/krb5.conf
 
 - name: Create the initial kerberos database
-  script: create_db.sh {{ master_db_pass }} 
+  script: create_db.sh "{{ master_db_pass }}" 
   when: install.changed
 
 # - name: Make sure we have the entry for hostname in /etc/hosts  
   # host: ip={{ ansible_default_ipv4.address }} hostname={{ ansible_hostname }} alias="{{ ansible_hostname + '.' + realm_name|lower() }}"
 
 - name: Start the kerberos services 
-  service: name={{ item }} state=started enabled=yes
-  with_items: ubuntu_service
+  service: 
+    name: "{{ item }}"
+    state: started 
+    enabled: yes
+  with_items: "{{ ubunt_service }}"
 
 - name: Create an admin for the administering the kerberos database
-  script: create_admin.sh  {{ kadmin_pass }} {{ kadmin_user }} 
+  script: create_admin.sh  "{{ kadmin_pass }}" "{{ kadmin_user }}" 
   when: install.changed
-
-

@@ -1,14 +1,14 @@
 ---
 
-redhat_pkg:
-  - libselinux-python
+centos_pkg:
   - krb5-libs 
   - krb5-workstation 
   - cyrus-sasl-gssapi
 
 ubuntu_pkg:
-  - python-selinux
-  - krb5-user
-  - libsasl2-modules-gssapi-mit
+  - krb5-user 
+  - libpam-krb5 
+  - libpam-ccreds 
+  - auth-client-config
 
   

@@ -3,6 +3,6 @@
 - include: redhat.yml
   when: ansible_facts['os_family'] == "CentOS"
   
-# - include: ubuntu.yml
-  # when: ansible_facts['os_family'] == "Debian"
+- include: ubuntu.yml
+  when: ansible_facts['os_family'] == "Debian"
 
