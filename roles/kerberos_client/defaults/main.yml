@@ -1,8 +1,8 @@
 ---
 
-realm_name: EXAMPLE.COM
-kdc_hostname: kerberos
-admin_hostname: kerberos
+realm_name: EASTONLAB.ORG
+kdc_hostname: ldap-server.eastonlab.com
+admin_hostname: ldap-server.eastonlab.com
 dns_lookup_realm: "false"
 dns_lookup_kdc: "false"
 ticket_lifetime: "24h"
