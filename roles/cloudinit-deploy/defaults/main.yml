@@ -1,6 +1,6 @@
 ---
 # possible values are small (S), medium (M) or big (L)
-cluster_size: 'small'
+cluster_size: small
 
 # default clone values
 defaults:
