@@ -1,12 +1,12 @@
 
 - name: Deploy dynamic VMs from cloud-init template
-  hosts: pve
+  hosts: pve.eastonlab.org
   roles:
    - cloudinit-deploy
   tags: cloudinit-deploy
   
 - name: Manage dynamic VMs from cloud-init template
-  hosts: pve
+  hosts: pve.eastonlab.org
   roles:
    - cloudinit-manage
   tags: cloudinit-manage
