@@ -37,6 +37,7 @@ gather_facts: False
   service: 
     name: "{{ item }}" 
     state: started
+    enabled: yes
   with_items: "{{ ubuntu_service }}"
 
 - name: Create an admin for the administering the kerberos database
