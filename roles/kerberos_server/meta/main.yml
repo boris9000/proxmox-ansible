@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: "Benno Joy"
-  company: AnsibleWorks
+  author: "Spolex"
+  company: spolex
   license: license (BSD)
   min_ansible_version: 1.4 (or higher)
   platforms:
