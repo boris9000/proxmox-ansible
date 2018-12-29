@@ -18,13 +18,13 @@
   template: src=kadm5.acl.j2 dest=/etc/krb5kdc/kadm5.acl
 #  notify: restart kerberos ubuntu
 
-- name: Copy the client configuration file 
-  template: src=krb5.conf.j2 dest=/etc/krb5.conf
-  notify: stop kerberos ubuntu
+# - name: Copy the client configuration file 
+  # template: src=krb5.conf.j2 dest=/etc/krb5.conf
+  # notify: stop kerberos ubuntu
   
 # kdb5_util: Cannot open DB2 database '/etc/krb5kdc/principal'
-- name: Destroy default kerberos database 
-  script: destroy_db.sh
+# - name: Destroy default kerberos database 
+  # script: destroy_db.sh
 
 - name: Create the initial kerberos database
   script: create_db.sh "{{ master_db_pass }}" 
