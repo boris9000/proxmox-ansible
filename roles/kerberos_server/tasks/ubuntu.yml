@@ -9,18 +9,15 @@
 
 - name: Copy the kdc configuration file 
   template: src=kdc.conf.j2 dest=/etc/krb5kdc/kdc.conf
-#  notify: restart kerberos ubuntu
 
 - name: Link /dev/random to /dev/urandom
   file: path=/dev/random src=/dev/urandom state=link force=yes
 
 - name: Copy the kdc acl configuration file 
   template: src=kadm5.acl.j2 dest=/etc/krb5kdc/kadm5.acl
-#  notify: restart kerberos ubuntu
 
-# - name: Copy the client configuration file 
-  # template: src=krb5.conf.j2 dest=/etc/krb5.conf
-  # notify: stop kerberos ubuntu
+- name: Copy the client configuration file 
+  template: src=krb5.conf.j2 dest=/etc/krb5.conf
   
 # kdb5_util: Cannot open DB2 database '/etc/krb5kdc/principal'
 # - name: Destroy default kerberos database 
@@ -28,16 +25,13 @@
 
 - name: Create the initial kerberos database
   script: create_db.sh "{{ master_db_pass }}" 
-
-# - name: Make sure we have the entry for hostname in /etc/hosts  
-  # host: ip={{ ansible_default_ipv4.address }} hostname={{ ansible_hostname }} alias="{{ ansible_hostname + '.' + realm_name|lower() }}"
-
+ 
+- name: Create an admin for the administering the kerberos database
+  script: create_admin.sh  "{{ kadmin_pass }}" "{{ kadmin_user }}" 
+  
 - name: start kerberos ubuntu
   service: 
     name: "{{ item }}" 
     state: started
     enabled: yes
   with_items: "{{ ubuntu_service }}"
-
-- name: Create an admin for the administering the kerberos database
-  script: create_admin.sh  "{{ kadmin_pass }}" "{{ kadmin_user }}" 
