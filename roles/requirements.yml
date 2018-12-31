@@ -10,4 +10,6 @@
   name: adminer
 - src: geerlingguy.php
   name: php
+- src: geerlingguy.apache
+  apache
 #- src: capitanh.openldap-ansible-role
