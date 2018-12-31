@@ -5,3 +5,9 @@
   roles:
    - mysql
   tags: mysql
+  
+- name: Apply the adminer to the dev group
+  hosts: database
+  roles:
+   - adminer
+  tags: adminer

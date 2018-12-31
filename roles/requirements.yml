@@ -6,4 +6,6 @@
 - src: mrlesmithjr.etc-hosts
 - src:  geerlingguy.mysql
   name: mysql
+- src: geerlingguy.adminer
+  name: adminer
 #- src: capitanh.openldap-ansible-role
