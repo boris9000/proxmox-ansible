@@ -11,12 +11,6 @@
   roles:
    - php
   tags: php
-
-- name: Apply the apache to the database group
-  hosts: database
-  roles:
-   - apache
-  tags: apache
   
 - name: Apply the adminer to the database group
   hosts: database
