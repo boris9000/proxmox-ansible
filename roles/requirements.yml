@@ -4,6 +4,12 @@
 - src: softasap.sa-vnc-remote-desktop
 - src: sdarwin.vnc
 - src: mrlesmithjr.etc-hosts
-- src: isu-ansible.kerberos
-  name: kerberos
+- src:  geerlingguy.mysql
+  name: mysql
+- src: geerlingguy.adminer
+  name: adminer
+- src: geerlingguy.php
+  name: php
+- src: geerlingguy.apache
+  apache
 #- src: capitanh.openldap-ansible-role
