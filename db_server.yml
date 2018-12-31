@@ -1,0 +1,7 @@
+---
+
+- name: Apply the mysql to the dev group
+  hosts: database
+  roles:
+   - mysql
+  tags: mysql
