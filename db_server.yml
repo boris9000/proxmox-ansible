@@ -1,12 +1,18 @@
 ---
 
-- name: Apply the mysql to the dev group
+- name: Apply the mysql to the database group
   hosts: database
   roles:
    - mysql
   tags: mysql
+
+- name: Apply the php to the database group
+  hosts: database
+  roles:
+   - php
+  tags: php
   
-- name: Apply the adminer to the dev group
+- name: Apply the adminer to the database group
   hosts: database
   roles:
    - adminer

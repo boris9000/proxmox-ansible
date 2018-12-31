@@ -8,4 +8,6 @@
   name: mysql
 - src: geerlingguy.adminer
   name: adminer
+- src: geerlingguy.php
+  name: php
 #- src: capitanh.openldap-ansible-role
