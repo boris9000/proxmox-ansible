@@ -1,0 +1,6 @@
+- name: Manage dynamic VMs from cloud-init template
+  hosts: kubernetes
+  roles:
+   - docker
+   - kubernetes
+  tags: kubernetes-deploy

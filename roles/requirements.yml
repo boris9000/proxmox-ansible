@@ -10,4 +10,8 @@
   name: adminer
 - src: geerlingguy.php
   name: php
+- src: geerlingguy.docker
+  name: docker
+- src: geerlingguy.kubernetes
+  name: kubernetes
 #- src: capitanh.openldap-ansible-role
